@@ -14,8 +14,8 @@ from launch_ros.parameter_descriptions import ParameterValue
 
 
 def generate_launch_description():
-    urdf_tutorial_path = get_package_share_path('hunter_description')
-    default_model_path = urdf_tutorial_path / 'urdf/hunter2_base_gazebo.xacro'
+    # urdf_tutorial_path = get_package_share_path('hunter_description')
+    # default_model_path = urdf_tutorial_path / 'urdf/hunter2_base_gazebo.xacro'
     use_sim_time_arg = DeclareLaunchArgument('use_sim_time', default_value='false',
                                              description='Use simulation clock if true')
 
@@ -32,29 +32,29 @@ def generate_launch_description():
                                                    description='Whether running with simulator')
     sim_control_rate_arg = DeclareLaunchArgument('control_rate', default_value='50',
                                                  description='Simulation control loop update rate')
-    robot_description = ParameterValue(Command(['xacro ', LaunchConfiguration('model')]),
-                                       value_type=str)
+    # robot_description = ParameterValue(Command(['xacro ', LaunchConfiguration('model')]),
+    #                                    value_type=str)
     
-    model_arg = DeclareLaunchArgument(name='model', default_value=str(default_model_path),
-                                      description='Absolute path to robot urdf file')
-    gui_arg = DeclareLaunchArgument(name='gui', default_value='false', choices=['true', 'false'],
-                                    description='Flag to enable joint_state_publisher_gui')
+    # model_arg = DeclareLaunchArgument(name='model', default_value=str(default_model_path),
+    #                                   description='Absolute path to robot urdf file')
+    # gui_arg = DeclareLaunchArgument(name='gui', default_value='false', choices=['true', 'false'],
+    #                                 description='Flag to enable joint_state_publisher_gui')
         
-    robot_state_publisher_node = Node(
-        package='robot_state_publisher',
-        executable='robot_state_publisher',
-        parameters=[{'robot_description': robot_description}]
-    )
-    joint_state_publisher_node = Node(
-        package='joint_state_publisher',
-        executable='joint_state_publisher',
-        condition=UnlessCondition(LaunchConfiguration('gui'))
-    )
-    joint_state_publisher_gui_node = Node(
-        package='joint_state_publisher_gui',
-        executable='joint_state_publisher_gui',
-        condition=IfCondition(LaunchConfiguration('gui'))
-    )
+    # robot_state_publisher_node = Node(
+    #     package='robot_state_publisher',
+    #     executable='robot_state_publisher',
+    #     parameters=[{'robot_description': robot_description}]
+    # )
+    # joint_state_publisher_node = Node(
+    #     package='joint_state_publisher',
+    #     executable='joint_state_publisher',
+    #     condition=UnlessCondition(LaunchConfiguration('gui'))
+    # )
+    # joint_state_publisher_gui_node = Node(
+    #     package='joint_state_publisher_gui',
+    #     executable='joint_state_publisher_gui',
+    #     condition=IfCondition(LaunchConfiguration('gui'))
+    # )
 
     hunter_base_node = launch_ros.actions.Node(
         package='hunter_base',
@@ -75,15 +75,15 @@ def generate_launch_description():
         use_sim_time_arg,
         port_name_arg,        
         odom_frame_arg,
-        model_arg,
-        gui_arg,
+        # model_arg,
+        # gui_arg,
         base_link_frame_arg,
         odom_topic_arg,
         simulated_robot_arg,
         sim_control_rate_arg,
         hunter_base_node,
-        robot_state_publisher_node,
-        joint_state_publisher_node,
-        joint_state_publisher_gui_node
+        # robot_state_publisher_node,
+        # joint_state_publisher_node,
+        # joint_state_publisher_gui_node
         
     ])
