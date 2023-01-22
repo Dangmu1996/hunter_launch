@@ -84,7 +84,7 @@
   </link>
   <joint
     name="front_steer_left_joint"
-    type="revolute">
+    type="fixed">
     <origin
       xyz="0.37142 0.29199 -0.1955"
       rpy="1.5708 0 0" />
@@ -92,13 +92,13 @@
       link="base_link" />
     <child
       link="front_steer_left_link" />
-    <axis
+    <!-- <axis
       xyz="0 1 0" />
     <limit
       lower="-0.69"
       upper="0.69"
       effort="0"
-      velocity="0" />
+      velocity="0" /> -->
   </joint>
   <link
     name="front_left_wheel_link">
@@ -142,7 +142,7 @@
   </link>
   <joint
     name="front_left_wheel_joint"
-    type="continuous">
+    type="fixed">
     <origin
       xyz="0 0 0"
       rpy="0 0 0" />
@@ -150,8 +150,8 @@
       link="front_steer_left_link" />
     <child
       link="front_left_wheel_link" />
-    <axis
-      xyz="0 0 -1" />
+    <!-- <axis
+      xyz="0 0 -1" /> -->
   </joint>
   <link
     name="front_steer_right_link">
@@ -193,7 +193,7 @@
   </link>
   <joint
     name="front_steer_right_joint"
-    type="revolute">
+    type="fixed">
     <origin
       xyz="0.37142 -0.29201 -0.1955"
       rpy="1.5708 0 0" />
@@ -201,13 +201,13 @@
       link="base_link" />
     <child
       link="front_steer_right_link" />
-    <axis
+    <!-- <axis
       xyz="0 1 0" />
     <limit
       lower="-0.69"
       upper="0.69"
       effort="0"
-      velocity="0" />
+      velocity="0" /> -->
   </joint>
   <link
     name="front_right_wheel_link">
@@ -251,7 +251,7 @@
   </link>
   <joint
     name="front_right_wheel_joint"
-    type="continuous">
+    type="fixed">
     <origin
       xyz="0 0 0"
       rpy="0 0 0" />
@@ -259,8 +259,8 @@
       link="front_steer_right_link" />
     <child
       link="front_right_wheel_link" />
-    <axis
-      xyz="0 0 -1" />
+    <!-- <axis
+      xyz="0 0 -1" /> -->
   </joint>
   <link
     name="left_rear_link">
@@ -304,7 +304,7 @@
   </link>
   <joint
     name="left_rear_joint"
-    type="continuous">
+    type="fixed">
     <origin
       xyz="-0.28 0.29249 -0.19558"
       rpy="1.5708 0 0" />
@@ -312,13 +312,13 @@
       link="base_link" />
     <child
       link="left_rear_link" />
-    <axis
-      xyz="0 0 -1" />
-    <limit
+    <!-- <axis
+      xyz="0 0 -1" /> -->
+    <!-- <limit
       lower="-3.14"
       upper="3.14"
       effort="0"
-      velocity="0" />
+      velocity="0" /> -->
   </joint>
   <link
     name="right_rear_link">
@@ -362,7 +362,7 @@
   </link>
   <joint
     name="right_rear_joint"
-    type="continuous">
+    type="fixed">
     <origin
       xyz="-0.28018 -0.29251 -0.19558"
       rpy="1.5708 0.0026575 0" />
@@ -370,13 +370,13 @@
       link="base_link" />
     <child
       link="right_rear_link" />
-    <axis
+    <!-- <axis
       xyz="0 0 -1" />
     <limit
       lower="-3.14"
       upper="3.14"
       effort="0"
-      velocity="0" />
+      velocity="0" /> -->
   </joint>
   <link
     name="front_steer_link">
@@ -418,7 +418,7 @@
   </link>
   <joint
     name="front_steer_joint"
-    type="revolute">
+    type="fixed">
     <origin
       xyz="0.44792 -1.1431E-05 -0.121"
       rpy="0 0 0" />
@@ -426,13 +426,13 @@
       link="base_link" />
     <child
       link="front_steer_link" />
-    <axis
+    <!-- <axis
       xyz="0 0 1" />
     <limit
       lower="-0.72"
       upper="0.72"
       effort="0"
-      velocity="0" />
+      velocity="0" /> -->
   </joint>
   <link
     name="rear_wheel_link">
@@ -474,7 +474,7 @@
   </link>
   <joint
     name="rear_wheel_joint"
-    type="continuous">
+    type="fixed">
     <origin
       xyz="-0.42408 -1.1431E-05 -0.085581"
       rpy="0.0032313 0 0" />
@@ -482,8 +482,8 @@
       link="base_link" />
     <child
       link="rear_wheel_link" />
-    <axis
-      xyz="0 0 1" />
+    <!-- <axis
+      xyz="0 0 1" /> -->
   </joint>
 
   <link
@@ -526,3 +526,4 @@
   
 
 </robot>
+
